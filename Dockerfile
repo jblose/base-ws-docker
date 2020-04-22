@@ -18,4 +18,7 @@ RUN rpm --import https://packages.microsoft.com/keys/microsoft.asc
 COPY repos/azure-cli.repo /etc/yum.repos.d/azure-cli.repo
 RUN yum -y install azure-cli
 
+# Networking Tools
+RUN yum -y install bind-utils
+
 USER root
