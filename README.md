@@ -17,3 +17,7 @@ docker build -t centos-ws .
 
 ## Execution
 
+```bash
+# Git-Bash from Windows
+winpty docker run -it --rm --name centos-ws -v //c/Users/<user name>/.kube/config:/root/.kube/config centos-ws
+```
