@@ -29,4 +29,7 @@ RUN chmod +x /usr/local/bin/kubectl
 RUN cd /usr/local/bin && curl -LO https://github.com/argoproj/argo-rollouts/releases/latest/download/kubectl-argo-rollouts-linux-amd64
 RUN chmod +x /usr/local/bin/kubectl-argo-rollouts-linux-amd64 && mv /usr/local/bin/kubectl-argo-rollouts-linux-amd64 /usr/local/bin/kubectl-argo-rollouts
 
+# Development Tools
+RUN yum -y install make
+
 USER root
