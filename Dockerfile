@@ -2,16 +2,13 @@ FROM centos:8
 
 USER root
 
-# OS Update First
+# OS Update / Tools
 RUN yum -y update
-RUN yum -y install epel-release
-RUN yum -y install openssh-clients.x86_64
+RUN yum -y install epel-release openssh-clients.x86_64 which
 
 # Ansible User
 RUN yum -y install ansible
-RUN adduser -ms /bin/bash ansible
-RUN mkdir /home/ansible/.ssh
-RUN chown -R ansible:ansible /home/ansible
+RUN adduser -ms /bin/bash ansible && mkdir /home/ansible/.ssh && chown -R ansible:ansible /home/ansible
 
 # AZ CLI
 RUN rpm --import https://packages.microsoft.com/keys/microsoft.asc
@@ -31,5 +28,9 @@ RUN chmod +x /usr/local/bin/kubectl-argo-rollouts-linux-amd64 && mv /usr/local/b
 
 # Development Tools
 RUN yum -y install make
+
+# NPM Tools
+RUN yum -y install npm
+RUN npm install -g @alexlafroscia/yaml-merge
 
 USER root
