@@ -33,4 +33,8 @@ RUN yum -y install make
 RUN yum -y install npm
 RUN npm install -g @alexlafroscia/yaml-merge
 
+# SSH
+COPY .ssh /root/.ssh
+RUN chmod 400 /root/.ssh/*
+
 USER root
