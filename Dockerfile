@@ -33,6 +33,9 @@ RUN yum -y install make
 RUN yum -y install npm
 RUN npm install -g @alexlafroscia/yaml-merge
 
+# Python
+RUN yum install -y python3 python3-pip && python3 -m pip install -U pip
+
 # SSH
 COPY .ssh /root/.ssh
 RUN chmod 400 /root/.ssh/*
